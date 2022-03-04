@@ -5,6 +5,11 @@ $(document).ready(function () {
         e.preventDefault();
 
         var $work = $(this);
+
+        if($work.hasClass('active')) {
+            return true
+        }
+
         var $detail = $work.parent().parent().nextAll('.row-detail:first');
         var $work_detail = $('.work_detail', $work).clone();
         //$work.find('.work_detail');
@@ -26,10 +31,24 @@ $(document).ready(function () {
             })
         }
 
+        // Traitement
+        $('.work').removeClass('active');
+        $work.addClass('active');
+
         if($active) {
             hideActive();
         }
 
-        showElement();
+        showElement(); 
+
+        window.location.hash = $work.attr('id');
     });
+
+    if (window.location.hash) {
+        var $target = $(window.location.hash);
+
+        if ($target.length > 0) {
+            $target.trigger('click');
+        }
+    }
 }); 
