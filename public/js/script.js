@@ -1,12 +1,10 @@
 $(document).ready(function () {
     var $active = false;
 
-    $('.work').click(function (e) {
-        e.preventDefault();
+    window.onhashchange = function () {
+        var $work = $(window.location.hash);
 
-        var $work = $(this);
-
-        if($work.hasClass('active')) {
+        if($work.length < 1 || $work.hasClass('active')) {
             return true
         }
 
@@ -41,7 +39,12 @@ $(document).ready(function () {
 
         showElement(); 
 
-        window.location.hash = $work.attr('id');
+    }
+
+    $('.work').click(function (e) {
+        e.preventDefault();
+
+        window.location.hash = $(this).attr('id');
     });
 
     if (window.location.hash) {
