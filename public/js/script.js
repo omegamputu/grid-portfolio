@@ -9,7 +9,16 @@ $(document).ready(function () {
         var $work_detail = $('.work_detail', $work).clone();
         //$work.find('.work_detail');
 
-        if($active) {
+        // Affichage de la réalisation avec un effet de slideDown
+
+        var showElement = function () {
+            $detail.append($work_detail.slideDown());
+            $active = $work_detail.removeClass("d-none");
+        }
+
+        // Cette fonction cache l'élément active
+
+        var hideActive = function () {
             var $el = $active;
 
             $el.slideUp(500, function () {
@@ -17,8 +26,10 @@ $(document).ready(function () {
             })
         }
 
-        $detail.append($work_detail);
-        $work_detail.slideDown();
-        $active = $work_detail.removeClass("d-none");
+        if($active) {
+            hideActive();
+        }
+
+        showElement();
     });
 }); 
