@@ -49,6 +49,11 @@ $(document).ready(function () {
 
         if ($target.length > 0) {
             $target.trigger('click');
+            scrollTo($target);
         }
     }
 }); 
+
+var scrollTo = function(cible){
+    $('html, body').animate({scrollTop: cible.offset().top}, 750);
+}
