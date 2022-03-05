@@ -1,4 +1,14 @@
 $(document).ready(function () {
+
+    const filter_btns = document.querySelectorAll(".filter-btn");
+
+    filter_btns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+            filter_btns.forEach((button) => button.classList.remove("active"));
+            btn.classList.add("active");
+        });
+    });
+    
     var $active = false;
 
     window.onhashchange = function () {
@@ -8,7 +18,7 @@ $(document).ready(function () {
             return true
         }
 
-        var $detail = $work.parent().parent().nextAll('.row-detail:first');
+        var $detail = $work.parent().nextAll('.row-detail:first');
         var $work_detail = $('.work_detail', $work).clone();
         //$work.find('.work_detail');
 
@@ -60,3 +70,4 @@ $(document).ready(function () {
 var scrollTo = function(cible){
     $('html, body').animate({scrollTop: cible.offset().top}, 750);
 }
+

@@ -12997,10 +12997,6 @@ textarea.form-control-lg {
   --secondary: #c1c6cb;
 }
 
-body {
-  padding-top: 80px;
-}
-
 img {
   width: 100%;
   height: auto;
@@ -13010,6 +13006,56 @@ img {
   cursor: pointer;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.section {
+  padding: 7rem 0;
+  overflow: hidden;
+}
+
+.portfolio {
+  position: relative;
+  width: 100%;
+  background-color: var(--light-two);
+}
+
+.background-bg {
+  position: absolute;
+  width: 100%;
+  height: 520px;
+  top: 0;
+  left: 0;
+  background-color: var(--main-color);
+}
+
+.filter {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin: 0.45rem 0.4rem;
+  padding: 0.85rem 1.8rem;
+  color: var(--light-one);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 2rem;
+  transition: 0.3s;
+}
+
+.filter-btn.active {
+  background-color: var(--light-one);
+  color: var(--main-color);
 }
 
 .gallery-image {
